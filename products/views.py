@@ -74,12 +74,9 @@ def products(request):
         "product_category": ProductCategory.objects.all(),
         "products": Product.objects.all()
     }
-
-
     # with open('products\\fixtures\products.json') as file:
     #     for product in file:
     #         context.update(json.loads(product))
     print(context.items())
-
 
     return render(request, 'products\\products.html', context)
