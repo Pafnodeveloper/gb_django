@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from products.models import Product, ProductCategory
 import json
 
 
@@ -68,10 +69,17 @@ def products(request):
     # json.dump(to_JSON, end_file)
     # end_file.close()
 
-    context = {"title": "GeekShop - Каталог"}
+    context = {
+        "title": "GeekShop - Каталог",
+        "product_category": ProductCategory.objects.all(),
+        "products": Product.objects.all()
+    }
 
-    with open('products\\fixtures\products.json') as file:
-        for product in file:
-            context.update(json.loads(product))
+
+    # with open('products\\fixtures\products.json') as file:
+    #     for product in file:
+    #         context.update(json.loads(product))
     print(context.items())
+
+
     return render(request, 'products\\products.html', context)
