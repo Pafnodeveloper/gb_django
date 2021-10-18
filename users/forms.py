@@ -10,7 +10,7 @@ class UserLoginForm(AuthenticationForm):
         "class": "form - control py - 4", "placeholder": "Введите пароль", "max_length": 200}))
 
     class Meta:
-        model = User,
+        model = User
         fields = ('username', 'password')
 
 
@@ -29,5 +29,5 @@ class UserRegistrationForm(UserCreationForm):
         "class": "form-control py-4", "placeholder": "Подтвердите пароль"}))
 
     class Meta:
-        model = User,
+        model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')

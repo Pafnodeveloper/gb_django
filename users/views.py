@@ -15,7 +15,7 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('index'))
     else:
-        form = UserLoginForm
+        form = UserLoginForm()
 
     context = {
         "title": "GeekShop - Авторизация",
