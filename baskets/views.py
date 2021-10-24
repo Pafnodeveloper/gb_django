@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponseRedirect
 from baskets.models import Basket
 from products.models import Product
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def basket_add(request, product_id):
     # get product from DB by his id
     product = Product.objects.get(id=product_id)
@@ -23,6 +25,7 @@ def basket_add(request, product_id):
         basket.quantity += 1
         # сохраняем в БД с новым значением
         basket.save()
+        return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 def basket_remove(request, id):
