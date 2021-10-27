@@ -74,9 +74,12 @@
                             </div>
                             <div class="card-footer text-center">
                                 {% if product.quantity %}
-                                <button type="button" class="btn btn-outline-success">
+                                <a class="btn btn-outline-success" href="{% url 'baskets:basket_add' product.id %}">
                                     Отправить в корзину
-                                </button>
+                                </a>
+<!--                                <button type="button" class="btn btn-outline-success">-->
+<!--                                    Отправить в корзину-->
+<!--                                </button>-->
                                 {% else %}
                                 <button type="button" class="btn btn-outline-danger">
                                     Товара нет в наличии
